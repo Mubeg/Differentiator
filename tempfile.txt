@@ -1,0 +1,3 @@
+digraph new_node{
+128 [color = "orange"; shape = record; label =""]
+}
