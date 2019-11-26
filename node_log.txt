@@ -5718,3 +5718,1043 @@ node [0x564ee72cab00] new_node [0x564ee52df26f] {
 
 }
 
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 231, function bool node_init(Node_t*, const char*, Node_t*) [ok]
+node [0x560dc470f1a0] new_node [0x560dc31e526f] {
+
+	 hash    = 18436914353255586936
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [(nil)] { }
+	 right   = [(nil)]
+	 left    = [(nil)]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 321, function bool node_set(Node_t*, Elem_t, int) [ok]
+node [0x560dc470f1a0] new_node [0x560dc31e526f] {
+
+	 hash    = 18436914353255586936
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [(nil)] { }
+	 right   = [(nil)]
+	 left    = [(nil)]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 329, function bool node_set(Node_t*, Elem_t, int) [ok]
+node [0x560dc470f1a0] new_node [0x560dc31e526f] {
+
+	 hash    = 18436914353255586936
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [(nil)] { }
+	 right   = [(nil)]
+	 left    = [(nil)]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 231, function bool node_init(Node_t*, const char*, Node_t*) [ok]
+node [0x560dc470f980] new_node [0x560dc31e526f] {
+
+	 hash    = 18436914353255586936
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [(nil)] { }
+	 right   = [(nil)]
+	 left    = [(nil)]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 321, function bool node_set(Node_t*, Elem_t, int) [ok]
+node [0x560dc470f980] new_node [0x560dc31e526f] {
+
+	 hash    = 18436914353255586936
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [(nil)] { }
+	 right   = [(nil)]
+	 left    = [(nil)]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 329, function bool node_set(Node_t*, Elem_t, int) [ok]
+node [0x560dc470f980] new_node [0x560dc31e526f] {
+
+	 hash    = 18436914353255586936
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [(nil)] { }
+	 right   = [(nil)]
+	 left    = [(nil)]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 231, function bool node_init(Node_t*, const char*, Node_t*) [ok]
+node [0x560dc470f9e0] new_node [0x560dc31e526f] {
+
+	 hash    = 18436914353255586936
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [(nil)] { }
+	 right   = [(nil)]
+	 left    = [(nil)]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 321, function bool node_set(Node_t*, Elem_t, int) [ok]
+node [0x560dc470f9e0] new_node [0x560dc31e526f] {
+
+	 hash    = 18436914353255586936
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [(nil)] { }
+	 right   = [(nil)]
+	 left    = [(nil)]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 329, function bool node_set(Node_t*, Elem_t, int) [ok]
+node [0x560dc470f9e0] new_node [0x560dc31e526f] {
+
+	 hash    = 18436914353255586936
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [(nil)] { }
+	 right   = [(nil)]
+	 left    = [(nil)]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 321, function bool node_set(Node_t*, Elem_t, int) [ok]
+node [0x560dc470f9e0] new_node [0x560dc31e526f] {
+
+	 hash    = 18436914353255586936
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [(nil)] { }
+	 right   = [(nil)]
+	 left    = [(nil)]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 329, function bool node_set(Node_t*, Elem_t, int) [ok]
+node [0x560dc470f9e0] new_node [0x560dc31e526f] {
+
+	 hash    = 29136455834744
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [0x32] {2}
+	 right   = [(nil)]
+	 left    = [(nil)]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 321, function bool node_set(Node_t*, Elem_t, int) [ok]
+node [0x560dc470f980] new_node [0x560dc31e526f] {
+
+	 hash    = 18436914353255586936
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [(nil)] { }
+	 right   = [(nil)]
+	 left    = [0x560dc470f9e0]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 329, function bool node_set(Node_t*, Elem_t, int) [ok]
+node [0x560dc470f980] new_node [0x560dc31e526f] {
+
+	 hash    = 43704984902776
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [0x2b] {+}
+	 right   = [(nil)]
+	 left    = [0x560dc470f9e0]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 231, function bool node_init(Node_t*, const char*, Node_t*) [ok]
+node [0x560dc470fa40] new_node [0x560dc31e526f] {
+
+	 hash    = 18436914353255586936
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [(nil)] { }
+	 right   = [(nil)]
+	 left    = [(nil)]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 321, function bool node_set(Node_t*, Elem_t, int) [ok]
+node [0x560dc470fa40] new_node [0x560dc31e526f] {
+
+	 hash    = 18436914353255586936
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [(nil)] { }
+	 right   = [(nil)]
+	 left    = [(nil)]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 329, function bool node_set(Node_t*, Elem_t, int) [ok]
+node [0x560dc470fa40] new_node [0x560dc31e526f] {
+
+	 hash    = 18436914353255586936
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [(nil)] { }
+	 right   = [(nil)]
+	 left    = [(nil)]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 321, function bool node_set(Node_t*, Elem_t, int) [ok]
+node [0x560dc470fa40] new_node [0x560dc31e526f] {
+
+	 hash    = 18436914353255586936
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [(nil)] { }
+	 right   = [(nil)]
+	 left    = [(nil)]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 329, function bool node_set(Node_t*, Elem_t, int) [ok]
+node [0x560dc470fa40] new_node [0x560dc31e526f] {
+
+	 hash    = 29136455834744
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [0x33] {3}
+	 right   = [(nil)]
+	 left    = [(nil)]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 321, function bool node_set(Node_t*, Elem_t, int) [ok]
+node [0x560dc470f1a0] new_node [0x560dc31e526f] {
+
+	 hash    = 18436914353255586936
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [(nil)] { }
+	 right   = [(nil)]
+	 left    = [0x560dc470f980]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 329, function bool node_set(Node_t*, Elem_t, int) [ok]
+node [0x560dc470f1a0] new_node [0x560dc31e526f] {
+
+	 hash    = 43704984902776
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [0x2a] {*}
+	 right   = [(nil)]
+	 left    = [0x560dc470f980]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 231, function bool node_init(Node_t*, const char*, Node_t*) [ok]
+node [0x560dc470faa0] new_node [0x560dc31e526f] {
+
+	 hash    = 18436914353255586936
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [(nil)] { }
+	 right   = [(nil)]
+	 left    = [(nil)]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 321, function bool node_set(Node_t*, Elem_t, int) [ok]
+node [0x560dc470faa0] new_node [0x560dc31e526f] {
+
+	 hash    = 18436914353255586936
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [(nil)] { }
+	 right   = [(nil)]
+	 left    = [(nil)]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 329, function bool node_set(Node_t*, Elem_t, int) [ok]
+node [0x560dc470faa0] new_node [0x560dc31e526f] {
+
+	 hash    = 18436914353255586936
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [(nil)] { }
+	 right   = [(nil)]
+	 left    = [(nil)]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 321, function bool node_set(Node_t*, Elem_t, int) [ok]
+node [0x560dc470faa0] new_node [0x560dc31e526f] {
+
+	 hash    = 18436914353255586936
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [(nil)] { }
+	 right   = [(nil)]
+	 left    = [(nil)]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 329, function bool node_set(Node_t*, Elem_t, int) [ok]
+node [0x560dc470faa0] new_node [0x560dc31e526f] {
+
+	 hash    = 43704984902776
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [0x78] {x}
+	 right   = [(nil)]
+	 left    = [(nil)]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 231, function bool node_init(Node_t*, const char*, Node_t*) [ok]
+node [0x560dc470fb00] new_node [0x560dc31e526f] {
+
+	 hash    = 18436914353255586936
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [(nil)] { }
+	 right   = [(nil)]
+	 left    = [(nil)]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 321, function bool node_set(Node_t*, Elem_t, int) [ok]
+node [0x560dc470fb00] new_node [0x560dc31e526f] {
+
+	 hash    = 18436914353255586936
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [(nil)] { }
+	 right   = [(nil)]
+	 left    = [(nil)]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 329, function bool node_set(Node_t*, Elem_t, int) [ok]
+node [0x560dc470fb00] new_node [0x560dc31e526f] {
+
+	 hash    = 43704984902776
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [0x2b] {+}
+	 right   = [(nil)]
+	 left    = [(nil)]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 231, function bool node_init(Node_t*, const char*, Node_t*) [ok]
+node [0x560dc470fb60] new_node [0x560dc31e526f] {
+
+	 hash    = 18436914353255586936
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [(nil)] { }
+	 right   = [(nil)]
+	 left    = [(nil)]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 321, function bool node_set(Node_t*, Elem_t, int) [ok]
+node [0x560dc470fb60] new_node [0x560dc31e526f] {
+
+	 hash    = 18436914353255586936
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [(nil)] { }
+	 right   = [(nil)]
+	 left    = [(nil)]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 329, function bool node_set(Node_t*, Elem_t, int) [ok]
+node [0x560dc470fb60] new_node [0x560dc31e526f] {
+
+	 hash    = 29136455834744
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [0x30] {0}
+	 right   = [(nil)]
+	 left    = [(nil)]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 231, function bool node_init(Node_t*, const char*, Node_t*) [ok]
+node [0x560dc470fbc0] new_node [0x560dc31e526f] {
+
+	 hash    = 18436914353255586936
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [(nil)] { }
+	 right   = [(nil)]
+	 left    = [(nil)]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 321, function bool node_set(Node_t*, Elem_t, int) [ok]
+node [0x560dc470fbc0] new_node [0x560dc31e526f] {
+
+	 hash    = 18436914353255586936
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [(nil)] { }
+	 right   = [(nil)]
+	 left    = [(nil)]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 329, function bool node_set(Node_t*, Elem_t, int) [ok]
+node [0x560dc470fbc0] new_node [0x560dc31e526f] {
+
+	 hash    = 29136455834744
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [0x30] {0}
+	 right   = [(nil)]
+	 left    = [(nil)]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 231, function bool node_init(Node_t*, const char*, Node_t*) [ok]
+node [0x560dc470fc20] new_node [0x560dc31e526f] {
+
+	 hash    = 18436914353255586936
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [(nil)] { }
+	 right   = [(nil)]
+	 left    = [(nil)]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 321, function bool node_set(Node_t*, Elem_t, int) [ok]
+node [0x560dc470fc20] new_node [0x560dc31e526f] {
+
+	 hash    = 18436914353255586936
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [(nil)] { }
+	 right   = [(nil)]
+	 left    = [(nil)]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 329, function bool node_set(Node_t*, Elem_t, int) [ok]
+node [0x560dc470fc20] new_node [0x560dc31e526f] {
+
+	 hash    = 43704984902776
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [0x2b] {+}
+	 right   = [(nil)]
+	 left    = [(nil)]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 231, function bool node_init(Node_t*, const char*, Node_t*) [ok]
+node [0x560dc470fc80] new_node [0x560dc31e526f] {
+
+	 hash    = 18436914353255586936
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [(nil)] { }
+	 right   = [(nil)]
+	 left    = [(nil)]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 321, function bool node_set(Node_t*, Elem_t, int) [ok]
+node [0x560dc470fc80] new_node [0x560dc31e526f] {
+
+	 hash    = 18436914353255586936
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [(nil)] { }
+	 right   = [(nil)]
+	 left    = [(nil)]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 329, function bool node_set(Node_t*, Elem_t, int) [ok]
+node [0x560dc470fc80] new_node [0x560dc31e526f] {
+
+	 hash    = 43704984902776
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [0x2b] {+}
+	 right   = [(nil)]
+	 left    = [(nil)]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 464, function void dot_node(Node_t*, const char*) [ok]
+node [0x560dc470fc80] new_node [0x560dc31e526f] {
+
+	 hash    = 43704984902776
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [0x2b] {+}
+	 right   = [0x560dc470fb00]
+	 left    = [0x560dc470fc20]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 464, function void dot_node(Node_t*, const char*) [ok]
+node [0x560dc470f1a0] new_node [0x560dc31e526f] {
+
+	 hash    = 43704984902776
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [0x2a] {*}
+	 right   = [0x560dc470faa0]
+	 left    = [0x560dc470f980]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 297, function bool node_deinit(Node_t*) [ok]
+node [0x560dc470f1a0] new_node [0x560dc31e526f] {
+
+	 hash    = 43704984902776
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [0x2a] {*}
+	 right   = [0x560dc470faa0]
+	 left    = [0x560dc470f980]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 297, function bool node_deinit(Node_t*) [ok]
+node [0x560dc470f980] new_node [0x560dc31e526f] {
+
+	 hash    = 43704984902776
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [0x2b] {+}
+	 right   = [0x560dc470fa40]
+	 left    = [0x560dc470f9e0]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 297, function bool node_deinit(Node_t*) [ok]
+node [0x560dc470f9e0] new_node [0x560dc31e526f] {
+
+	 hash    = 29136455834744
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [0x32] {2}
+	 right   = [(nil)]
+	 left    = [(nil)]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 297, function bool node_deinit(Node_t*) [ok]
+node [0x560dc470fa40] new_node [0x560dc31e526f] {
+
+	 hash    = 29136455834744
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [0x33] {3}
+	 right   = [(nil)]
+	 left    = [(nil)]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 297, function bool node_deinit(Node_t*) [ok]
+node [0x560dc470faa0] new_node [0x560dc31e526f] {
+
+	 hash    = 43704984902776
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [0x78] {x}
+	 right   = [(nil)]
+	 left    = [(nil)]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 297, function bool node_deinit(Node_t*) [ok]
+node [0x560dc470fc80] new_node [0x560dc31e526f] {
+
+	 hash    = 43704984902776
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [0x2b] {+}
+	 right   = [0x560dc470fb00]
+	 left    = [0x560dc470fc20]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 297, function bool node_deinit(Node_t*) [ok]
+node [0x560dc470fc20] new_node [0x560dc31e526f] {
+
+	 hash    = 43704984902776
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [0x2b] {+}
+	 right   = [0x560dc470fb60]
+	 left    = [0x560dc470fbc0]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 297, function bool node_deinit(Node_t*) [ok]
+node [0x560dc470fbc0] new_node [0x560dc31e526f] {
+
+	 hash    = 29136455834744
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [0x30] {0}
+	 right   = [(nil)]
+	 left    = [(nil)]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 297, function bool node_deinit(Node_t*) [ok]
+node [0x560dc470fb60] new_node [0x560dc31e526f] {
+
+	 hash    = 29136455834744
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [0x30] {0}
+	 right   = [(nil)]
+	 left    = [(nil)]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+
+
+Time and date: Tue Nov 26 16:43:22 2019
+
+Dumping node from file Differentiator.cpp, line 297, function bool node_deinit(Node_t*) [ok]
+node [0x560dc470fb00] new_node [0x560dc31e526f] {
+
+	 hash    = 43704984902776
+
+	 canary1 = BEDAAAAAAAAAAAAA
+	 data    = [0x2b] {+}
+	 right   = [(nil)]
+	 left    = [(nil)]
+	 parent  = [(nil)]
+
+	 errnum   = 000
+
+	 canary2 = BEDAAAAAAAAAAAAA
+
+}
+

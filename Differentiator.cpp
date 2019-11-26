@@ -491,9 +491,9 @@ void color_node(Node_t * node, FILE * file){
 	}
 
 	char color[MAX_COMMAND_LEN] = {};
-	sprintf(color, "color = \"%s\"", PARENT == nullptr ? "orange" :
-			(LEFT == nullptr && RIGHT == nullptr ? "red" :
-			(LEFT != nullptr && RIGHT != nullptr ? "green" : "black")));
+	sprintf(color, "color = \"%s\"", THIS->mode == MODE_FUNC ? "blue" :
+					(THIS->mode == MODE_VARL ? "red" :
+					(THIS->mode == MODE_CNST ? "green" : "black")));
 
 	fprintf(file, "%d [%s; shape = record; label =\"" ELEM_PRINT "\"]\n", THIS, color, DATA);
 
