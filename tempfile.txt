@@ -1,11 +1,11 @@
 digraph new_node{
--999231072 [color = "blue"; shape = record; label ="*"]
--999229056 [color = "blue"; shape = record; label ="+"]
--999228960 [color = "green"; shape = record; label ="2"]
--999228864 [color = "green"; shape = record; label ="3"]
--999228768 [color = "blue"; shape = record; label ="x"]
--999231072 -> -999229056
--999231072 -> -999228768
--999229056 -> -999228960
--999229056 -> -999228864
+1843843488 [color = "blue"; shape = record; label ="*"]
+1843845504 [color = "blue"; shape = record; label ="+"]
+1843845600 [color = "green"; shape = record; label ="2"]
+1843845696 [color = "green"; shape = record; label ="3"]
+1843845792 [color = "red"; shape = record; label ="x"]
+1843843488 -> 1843845504
+1843843488 -> 1843845792
+1843845504 -> 1843845600
+1843845504 -> 1843845696
 }

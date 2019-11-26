@@ -163,7 +163,7 @@ int get_mode(str_ptr string){
 		return -1;
 	}
 
-#define DEF_DIF(name, _mode, equal, code) 	else if(equal == string->str[0] == 0){\
+#define DEF_DIF(name, _mode, equal, code) 	else if(equal == string->str[0]){\
 							return MODE_FUNC;\
 						} 
 	
