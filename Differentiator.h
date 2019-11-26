@@ -13,8 +13,8 @@
 #define IS_ANS(arg) strcasecmp(ans, Long_string((arg))) == 0
 
 #define asserted || (fprintf(stderr, "Asserted from %s on %d in %s\n", __LOCATION__), abort(), false);
-#define node_assert(condition) if(!(condition)){fprintf(stderr, "File %s line %d function %s %s\n", __LOCATION__, #condition); abort();}
-//#define node_assert(condition)
+//#define node_assert(condition) if(!(condition)){fprintf(stderr, "File %s line %d function %s %s\n", __LOCATION__, #condition); abort();}
+#define node_assert(condition)
 
 #define check_parent(arg) arg->parent == nullptr ? false : arg->parent->right == arg 
 
@@ -99,6 +99,9 @@ const int MODE_FUNC			= 3;
 //const int LIST_CLUSTER_SIZE = sizeof(Elem_t) + 2*sizeof(int);
 
 
+void node_set_parents(Node_t * node);
+
+
 Node_t * differentiate_to_new(Node_t * node);
 
 
@@ -117,6 +120,9 @@ bool node_tree_optimize(Node_t * node);
 void node_write_to_file(Node_t * node, FILE * file);
 
 
+void node_write_to_file_less_brackets(Node_t * node, FILE * file);
+
+
 Node_t * node_make_from_file(const char file_name[]);
 
 
@@ -124,6 +130,9 @@ Node_t * node_make_from_buff(Node_t * node, Buff_elem_t * buff, const int buff_s
 
 
 int get_mode(str_ptr str);
+
+
+Elem_t Get_N(Buff_elem_t * str, int * pc);
 
 
 bool get_data(Buff_elem_t * buff, const int buff_size, int *pc, str_ptr str);

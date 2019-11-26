@@ -11,11 +11,17 @@ int main(){
 
 	Node_t *node_done = differentiate_to_new(node);
 	
-	while(node_tree_optimize(node_done));
+	while(node_tree_optimize(node_done)){dot_node(node_done, IMAGE_OUT);};
 	
+	node_set_parents(node_done);
+
 	dot_node(node_done, IMAGE_OUT);
 	dot_node(node, IMAGE_OUT_2);
 
+	FILE * file = fopen("myfile.txt", "w");
+	if(file != nullptr){
+		node_write_to_file_less_brackets(node_done, file);
+	}
 	//Node_tex(node_done);
 	
 	node_deinit(node);
@@ -24,6 +30,18 @@ int main(){
 	return 0;
 }
 
+void node_set_parents(Node_t * node){
+	
+	if(THIS == nullptr){
+		return;
+	}
+
+	if(LEFT  != nullptr) {LEFT->parent  = THIS;}
+	if(RIGHT != nullptr) {RIGHT->parent = THIS;}
+
+	node_set_parents(LEFT );
+	node_set_parents(RIGHT);
+}
 
 Node_t * differentiate_to_new(Node_t * node){
 
@@ -37,7 +55,8 @@ Node_t * do_diff_recursive(Node_t * node){
 		return nullptr;
 	}
 	
-	#define DEF_DIF(name, _mode, equal, command) 	else if(node->mode == _mode || (equal == DATA && node->mode == MODE_FUNC)){\
+	#define DEF_DIF(name, _mode, equal, command, do) \
+							else if((node->mode == _mode) && (node->mode != MODE_FUNC || equal == DATA)){\
 								command;\
 					      		}
 
@@ -63,6 +82,7 @@ Node_t * node_copy(Node_t * node){
 }
 
 Node_t * node_create_new(const int mode, const Elem_t elem, Node_t * left, Node_t * right, Node_t * parent /* = nullptr */){
+
 	
 	Node_t * new_node = nullptr;
 
@@ -79,7 +99,50 @@ Node_t * node_create_new(const int mode, const Elem_t elem, Node_t * left, Node_
 }
 
 bool node_tree_optimize(Node_t * node){
-	return false;
+
+
+	if(node == nullptr){
+		return false;
+	}
+
+	bool optimized = false;
+
+	#define DEF_OPTIM(condition, do)	if(THIS->mode == MODE_FUNC && condition){\
+							optimized = true;\
+							do;\
+						}
+	#include"optims.h"
+	#undef DEF_OPTIM
+
+
+	#define DEF_DIF(name, _mode, equal, command, do)	else if(equal == DATA){\
+									optimized = true;\
+									\
+									THIS->mode = MODE_CNST;\
+									do;\
+									\
+									node_deinit(LEFT);\
+									node_deinit(RIGHT);\
+									LEFT = nullptr;\
+									RIGHT = nullptr;\
+			      					}
+
+	if((LEFT != nullptr && LEFT->mode != MODE_CNST) || RIGHT == nullptr || RIGHT->mode != MODE_CNST || THIS->mode != MODE_FUNC){
+		0;
+	}
+	#include"commands.h"
+	else{
+		assert(("unexpected situation\n", false) == true);
+	}
+	#undef DEF_DIF
+
+
+	bool temp1 = node_tree_optimize(LEFT );
+	bool temp2 = node_tree_optimize(RIGHT);
+
+	optimized = optimized || temp1 || temp2;
+
+	return optimized;
 }
 
 
@@ -99,6 +162,62 @@ void node_write_to_file(Node_t * node, FILE * file){
 	node_write_to_file(RIGHT, file);
 
 	fprintf(file, ELEM_PRINT, SEPARATOR_END);
+
+}
+
+void node_write_to_file_less_brackets(Node_t * node, FILE * file){
+
+	if(THIS == nullptr){
+		return;
+	}
+
+	node_assert(check_nullptr(THIS));
+
+	int first_priority = 0;
+	int second_priority = 10;
+
+	#define DEF_OPER(name, equal, prior)	else if(PARENT->data == equal){\
+							first_priority = prior;\
+						}
+	if(PARENT == nullptr || PARENT->mode != MODE_FUNC){
+		0;
+	}
+	#include"opers.h"
+	else{
+		assert(("unexpected situation\n", false) == true);
+	}
+	#undef DEF_OPER
+
+	#define DEF_OPER(name, equal, prior)	else if(DATA == equal){\
+							second_priority = prior;\
+						}
+	if(THIS->mode != MODE_FUNC){
+		0;
+	}
+	#include"opers.h"
+	else{
+		assert(("unexpected situation\n", false) == true);
+	}
+	#undef DEF_OPER
+
+	if(first_priority - second_priority > 0){
+		fprintf(file, ELEM_PRINT, SEPARATOR_START);
+	}
+
+	node_write_to_file_less_brackets(LEFT, file);
+
+	if(THIS->mode == MODE_CNST){
+		fprintf(file, "%i", DATA);
+	}
+	else{
+		fprintf(file, ELEM_PRINT, DATA);
+	}
+
+	node_write_to_file_less_brackets(RIGHT, file);
+
+	if(first_priority - second_priority > 0){
+		fprintf(file, ELEM_PRINT, SEPARATOR_END);
+	}
 
 }
 
@@ -140,7 +259,14 @@ Node_t * node_make_from_buff(Node_t * node, Buff_elem_t * buff, const int buff_s
 	}	
 	int mode = get_mode(&string);
 
-	node_set(THIS, string.str[0], mode);
+	Elem_t elem = string.str[0];
+	int pc_temp = 0;
+
+	if(mode == MODE_CNST){
+		elem = Get_N(string.str, &pc_temp);
+	}
+
+	node_set(THIS, elem, mode);
 
 
 	RIGHT = node_make_from_buff(THIS, buff, buff_size, pc);
@@ -157,16 +283,33 @@ Node_t * node_make_from_buff(Node_t * node, Buff_elem_t * buff, const int buff_s
 	return nullptr;
 }
 
+Elem_t Get_N(Buff_elem_t * str, int * pc){
+	
+	int val = 0;
+	bool done = false;
+	while('0' < str[*pc] && str[*pc] < '9'){
+		
+		done = true;
+		val  = val*10 + str[*pc] - '0';
+		(*pc)++;
+	}
+	if(!done){
+		assert(("Get_N", false) == true);
+	}
+		
+	return val;
+}
+
 int get_mode(str_ptr string){
 	
 	if(string == nullptr || string->size <= 0){
 		return -1;
 	}
 
-#define DEF_DIF(name, _mode, equal, code) 	else if(equal == string->str[0]){\
-							return MODE_FUNC;\
-						} 
-	
+#define DEF_DIF(name, _mode, equal, command, do) 	else if(equal == string->str[0]){\
+								return MODE_FUNC;\
+							}
+						 	
 	if(is_digits(string)){
 		return MODE_CNST;
 	}
@@ -495,7 +638,10 @@ void color_node(Node_t * node, FILE * file){
 					(THIS->mode == MODE_VARL ? "red" :
 					(THIS->mode == MODE_CNST ? "green" : "black")));
 
-	fprintf(file, "%d [%s; shape = record; label =\"" ELEM_PRINT "\"]\n", THIS, color, DATA);
+	if(THIS->mode == MODE_CNST)
+		fprintf(file, "%d [%s; shape = record; label =\"" "%i"       "\"]\n", THIS, color, DATA);
+	else
+		fprintf(file, "%d [%s; shape = record; label =\"" ELEM_PRINT "\"]\n", THIS, color, DATA);
 
 	color_node(LEFT, file);
 	color_node(RIGHT, file);
@@ -506,6 +652,10 @@ void node_dot_dependences(Node_t * node, FILE * file){
 
 	if(THIS == nullptr){
 		return;	
+	}
+
+	if(PARENT != nullptr){
+		fprintf(file, "%d -> %d\n", THIS, PARENT);
 	}
 
 	if(LEFT   != nullptr){
