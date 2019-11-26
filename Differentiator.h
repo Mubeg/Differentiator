@@ -7,14 +7,14 @@
 #include <ctype.h>
 #include <locale.h>
 #include "includes/test-log.define"
-#define USING_WCHAR_T
+//#define USING_WCHAR_T
 #include "includes/ionegin"
 
 #define IS_ANS(arg) strcasecmp(ans, Long_string((arg))) == 0
 
 #define asserted || (fprintf(stderr, "Asserted from %s on %d in %s\n", __LOCATION__), abort(), false);
-//#define node_assert(condition) if(!(condition)){fprintf(stderr, "File %s line %d function %s %s\n", __LOCATION__, #condition); abort();}
-#define node_assert(condition)
+#define node_assert(condition) if(!(condition)){fprintf(stderr, "File %s line %d function %s %s\n", __LOCATION__, #condition); abort();}
+//#define node_assert(condition)
 
 #define check_parent(arg) arg->parent == nullptr ? false : arg->parent->right == arg 
 
@@ -40,10 +40,8 @@
 #endif
 #include <assert.h>
 
-typedef wchar_t *Elem_t;
-#define ELEM_PRINT "%ls" 
-typedef wchar_t Sub_elem_t;
-#define SUB_ELEM_PRINT "%lc"
+typedef int Elem_t;
+#define ELEM_PRINT "%c" 
 
 typedef unsigned long long int Canary_t;
 #define CANARY_PRINT "%LX"
@@ -58,7 +56,7 @@ struct Node_t {
 
 	Canary_t canary1;
 
-	Sub_elem_t data[MAX_LINE_LEN];
+	Elem_t data;
 	Node_t * left;
 	Node_t * right;
 	Node_t * parent;
@@ -76,7 +74,6 @@ const int CHECK_ZERO_ 		   	= __LINE__;
 const int CHECK_CANARY             	= 1 << (__LINE__ - CHECK_ZERO_ - 1); //= 1;
 const int CHECK_HASH               	= 1 << (__LINE__ - CHECK_ZERO_ - 1); //= 2;
 const int NAME_NULLPTR             	= 1 << (__LINE__ - CHECK_ZERO_ - 1); //= 4;
-const int DATA_NULLPTR             	= 1 << (__LINE__ - CHECK_ZERO_ - 1); //= 8;
 const int MAX_ERROR_NO 		   	= (__LINE__ - CHECK_ZERO_ - 1);
 
 
@@ -111,7 +108,7 @@ Node_t * do_diff_recursive(Node_t * node);
 Node_t * node_copy(Node_t * node);
 
 
-Node_t * node_create_new(const int mode, const Sub_elem_t elem[], Node_t * left, Node_t * right, Node_t * parent = nullptr);
+Node_t * node_create_new(const int mode, const Elem_t elem, Node_t * left, Node_t * right, Node_t * parent = nullptr);
 
 
 bool node_tree_optimize(Node_t * node);
@@ -150,7 +147,7 @@ bool node_deinit(Node_t *node);
 Elem_t node_get(Node_t *node);
 
 
-bool node_set(Node_t *node, str_ptr elem, const int mode);
+bool node_set(Node_t *node, Elem_t elem, const int mode);
 
 
 bool fill_data_with_poison(void * data, const size_t size, long long int poison, const size_t Elem_size);

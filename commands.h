@@ -6,17 +6,17 @@
 #define cR node_copy(node->right)
 #define NEW(mode, elem, left, right) node_create_new(mode, elem, left, right)
 
-DEF_DIF(cst, MODE_CNST, L"" , return NEW(MODE_CNST, L"0", nullptr, nullptr);)
+DEF_DIF(cst, MODE_CNST, '\0' , return NEW(MODE_CNST, '0', nullptr, nullptr);)
 
-DEF_DIF(var, MODE_VARL, L"" , return NEW(MODE_CNST, L"1", nullptr, nullptr);)
+DEF_DIF(var, MODE_VARL, '\0' , return NEW(MODE_CNST, '1', nullptr, nullptr);)
 
-DEF_DIF(add, MODE_FUNC, L"+", return NEW(MODE_FUNC, L"+", dL, dR);)
+DEF_DIF(add, MODE_FUNC, '+', return NEW(MODE_FUNC, '+', dL, dR);)
 
-DEF_DIF(sub, MODE_FUNC, L"-", return NEW(MODE_FUNC, L"-", dL, dR);)
+DEF_DIF(sub, MODE_FUNC, '-', return NEW(MODE_FUNC, '-', dL, dR);)
 
-DEF_DIF(mul, MODE_FUNC, L"*", return NEW(MODE_FUNC, L"+", NEW(MODE_FUNC, L"*", dL, cR), NEW(MODE_FUNC, L"*", cL, dR));)
+DEF_DIF(mul, MODE_FUNC, '*', return NEW(MODE_FUNC, '+', NEW(MODE_FUNC, '*', dL, cR), NEW(MODE_FUNC, '*', cL, dR));)
 
-//DEF_DIF(div, L"/", return NEW(MODE_FUNC, L"/", dL, dR);)
+//DEF_DIF(div, '/', return NEW(MODE_FUNC, '/', dL, dR);)
 
 #undef dL
 #undef cL

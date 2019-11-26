@@ -37,7 +37,7 @@ Node_t * do_diff_recursive(Node_t * node){
 		return nullptr;
 	}
 	
-	#define DEF_DIF(name, _mode, equal, command) 	else if(node->mode == _mode || (strcmp(equal, DATA) == 0 && node->mode == MODE_FUNC)){\
+	#define DEF_DIF(name, _mode, equal, command) 	else if(node->mode == _mode || (equal == DATA && node->mode == MODE_FUNC)){\
 								command;\
 					      		}
 
@@ -62,20 +62,13 @@ Node_t * node_copy(Node_t * node){
 	
 }
 
-Node_t * node_create_new(const int mode, const Sub_elem_t elem[], Node_t * left, Node_t * right, Node_t * parent /* = nullptr */){
+Node_t * node_create_new(const int mode, const Elem_t elem, Node_t * left, Node_t * right, Node_t * parent /* = nullptr */){
 	
 	Node_t * new_node = nullptr;
 
-	Sub_elem_t buff[MAX_LINE_LEN];
-
-	strcpy(buff, elem);
-	Elem_t temp_elem = buff;
-
-	str temp = make_str(temp_elem);
-
-	new_node = (Node_t *) calloc(1, sizeof(Node_t));\
+	new_node = (Node_t *) calloc(1, sizeof(Node_t));
 	NODE_INIT(new_node, nullptr);
-	node_set(new_node, &temp, mode);
+	node_set(new_node, elem, mode);
 
 	new_node->parent = parent;
 	new_node->left  = left;
@@ -100,12 +93,12 @@ void node_write_to_file(Node_t * node, FILE * file){
 
 	node_write_to_file(LEFT, file);
 
-	fprintf(file, SUB_ELEM_PRINT, SEPARATOR_START);
+	fprintf(file, ELEM_PRINT, SEPARATOR_START);
 	fprintf(file, "\"" ELEM_PRINT "\"", DATA);
 
 	node_write_to_file(RIGHT, file);
 
-	fprintf(file, SUB_ELEM_PRINT, SEPARATOR_END);
+	fprintf(file, ELEM_PRINT, SEPARATOR_END);
 
 }
 
@@ -128,7 +121,7 @@ Node_t * node_make_from_buff(Node_t * node, Buff_elem_t * buff, const int buff_s
 
 	if(buff[PC_N] == SEPARATOR_START){
 
-		NODE_ADD(THIS, Long_string(""));
+		NODE_ADD(THIS, 0);
 		PC_INCR;
 
 	}
@@ -142,19 +135,13 @@ Node_t * node_make_from_buff(Node_t * node, Buff_elem_t * buff, const int buff_s
 
 
 	str string = {};
-
 	if(!get_data(buff, buff_size, pc, &string)){
 		return nullptr;
-	}
-
-	//printf("3: [%p] %d %d\n", string.str, string.str[0], get_mode(&string));
-	//node_dump(THIS, __LOCATION__, true);
-	
+	}	
 	int mode = get_mode(&string);
 
-	node_set(THIS, &string, mode);
+	node_set(THIS, string.str[0], mode);
 
-	//node_dump(THIS, __LOCATION__, false);
 
 	RIGHT = node_make_from_buff(THIS, buff, buff_size, pc);
 
@@ -176,18 +163,11 @@ int get_mode(str_ptr string){
 		return -1;
 	}
 
-	printf("01: [%p] [%p] %d\n", string, string->str, (string->str)[0]);
-	printf("02: [%p] [%p] %d\n", string, string->str, (string->str)[0]);
-	printf("03: [%p] %ls\n", string->str, string->str);
-
-#define DEF_DIF(name, _mode, equal, code) 	else if(strcmp(equal, string->str) == 0){\
-							printf("05: [%p] %d\n", string->str, string->str[0]);\
+#define DEF_DIF(name, _mode, equal, code) 	else if(equal == string->str[0] == 0){\
 							return MODE_FUNC;\
 						} 
 	
-	printf("04: [%p] %ls\n", string->str, string->str);
 	if(is_digits(string)){
-		printf("06: [%p] %d\n", string->str, string->str[0]);
 		return MODE_CNST;
 	}
 	#include"commands.h"
@@ -207,7 +187,7 @@ bool get_data(Buff_elem_t * buff, const int buff_size, int *pc, str_ptr string){
 
 	Buff_elem_t temp_buff[MAX_LINE_LEN] = {};
 	int temp = 0;
-	int ans = sscanf(buff + *pc, Long_string("%l[^()]%n"), temp_buff, &temp);
+	int ans = sscanf(buff + *pc, Long_string("%[^()]%n"), temp_buff, &temp);
 
 	if(ans == 0){
 		return false;
@@ -292,7 +272,7 @@ Node_t * node_find(Node_t *node, str_ptr cmp_elem){
 		cmp_elem->size = MAX_LINE_LEN;
 	}
 
-	if(strcasecmp(DATA, cmp_elem->str) == 0){
+	if(DATA, cmp_elem->str[0] == 0){
 		return THIS;
 	}
 
@@ -334,24 +314,15 @@ Elem_t node_get(Node_t *node){
 }
 
 
-bool node_set(Node_t *node, str_ptr elem, const int mode){
+bool node_set(Node_t *node, Elem_t elem, const int mode){
 
 	//printf("%d %d\n", elem->str[0], elem->str[1]);
 
-	//node_assert(check_node(THIS, __LOCATION__));
-
-	//printf("%d %d\n", elem->str[0], elem->str[1]);
-
-	if(elem->size > MAX_LINE_LEN){
-		elem->str[MAX_LINE_LEN] = Long_string('\0');
-		elem->size = MAX_LINE_LEN;
-	}
-
-	//printf("[%d] %ls\n", elem->size, elem->str);
+	node_assert(check_node(THIS, __LOCATION__));
 
 	node->mode = mode;
 
-	strcpy(DATA, elem->str);
+	DATA = elem;
 
 	THIS->hash = find_sum_hash(THIS, sizeof(Node_t));
 
@@ -409,9 +380,6 @@ bool check_node(Node_t *node, const char called_from_file[], int line, const cha
 	if(DEBUG) printf("Passed: %d\n", passed);
  
 	passed = check_nullptr(THIS->name)              ? passed : (THIS->errnum += NAME_NULLPTR, false);
-	if(DEBUG) printf("Passed: %d\n", passed);
-
-	passed = check_nullptr(THIS->data)              ? passed : (THIS->errnum += DATA_NULLPTR, false);
 	if(DEBUG) printf("Passed: %d\n", passed);
 
 /*	passed = check_canary(THIS)? passed : (THIS->errnum = 1, false);
@@ -527,21 +495,7 @@ void color_node(Node_t * node, FILE * file){
 			(LEFT == nullptr && RIGHT == nullptr ? "red" :
 			(LEFT != nullptr && RIGHT != nullptr ? "green" : "black")));
 
-	Sub_elem_t data[MAX_COMMAND_LEN] = {};
-	for(int i = 0, j = 0; j < MAX_COMMAND_LEN;){
-		if(DATA[i] == Long_string(' ')){
-			data[j++] = Long_string('&');
-			data[j++] = Long_string('#');
-			data[j++] = Long_string('9');
-			data[j++] = Long_string('2');
-			data[j++] = Long_string(';');		
-		}
-		data[j++] = DATA[i++];
-	}
-
-	//fprintf(stderr, "%ls\n", DATA);
-
-	fprintf(file, "%d [%s; shape = record; label =\"" ELEM_PRINT "\"]\n", THIS, color, data);
+	fprintf(file, "%d [%s; shape = record; label =\"" ELEM_PRINT "\"]\n", THIS, color, DATA);
 
 	color_node(LEFT, file);
 	color_node(RIGHT, file);
@@ -623,7 +577,7 @@ hash_t hash(const void * const data, size_t size){
 int clear_stdin(void){
 
 	int did = 0;
-	Sub_elem_t c = fgetc(stdin);
+	Elem_t c = fgetc(stdin);
 
 	while(c != Long_string('\n') && c != EOF){
 		did = 1;
