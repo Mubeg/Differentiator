@@ -6,6 +6,20 @@
 
 
 const char TEX_FILE[] = "tex_file.tex";
+const char TEX_FILE_SUB[] = "tex_file";
+
+
+
+void tex_init(const char filename[]);
+
+
+void tex_process(const char filename[]);
+
+
+void log_to_tex_file(Node_t * root, const char filename[], const char proc[] = "Obvious transformation:");
+
+
+void tex_node_tree(Node_t * node, FILE * file);
 
 
 Node_t * differentiate_to_new(Node_t * node);

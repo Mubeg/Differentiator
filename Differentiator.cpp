@@ -22,8 +22,17 @@ int main(){
 	fclose(tree_file);
 
 	Node_t *node_done = differentiate_to_new(node);
+	node_set_parents(node_done);
 
-	while(node_tree_optimize(node_done)){dot_node(node_done, IMAGE_OUT);};
+	tex_init(TEX_FILE);
+
+	log_to_tex_file(node, TEX_FILE, "Do differentiation by x:");
+
+	while(node_tree_optimize(node_done)){node_set_parents(node_done); log_to_tex_file(node_done, TEX_FILE);};
+
+	log_to_tex_file(node_done, TEX_FILE, "Result:");
+
+	tex_process(TEX_FILE_SUB);
 	
 	node_set_parents(node_done);
 
@@ -35,7 +44,6 @@ int main(){
 		node_write_to_file_less_brackets(node_done, file);
 	}
 	fclose(file);
-	//Node_tex(node_done);
 	
 	node_deinit(node);
 	node_deinit(node_done);
@@ -43,11 +51,118 @@ int main(){
 	return 0;
 }
 
-//Node_t * tex_node_tree(Node_t * node, FILE * file){
-	
-	
+void tex_init(const char filename[]){
 
-//}
+	FILE * file = fopen(filename, "w");	
+	if(file == nullptr){
+		fprintf(stderr, "Unable to open file %s\n", filename);
+		return;
+	}
+
+	fprintf(file, "\\documentclass[a4paper]{article}\n\\begin{document}\n");
+
+	fclose(file);
+}
+
+void tex_process(const char filename[]){
+
+	char temp[strlen(filename) + 4] = {};
+	sprintf(temp, "%s.tex", filename);	
+
+	FILE * file = fopen(temp, "a");
+	if(file == nullptr){
+		fprintf(stderr, "Unable to open file %s\n", temp);
+		return;
+	}
+
+	fprintf(file, "\\end{document}\n");
+
+	fclose(file);
+	
+	char command[MAX_LINE_LEN] = {};
+
+	sprintf(command, "pdflatex %s.tex > tempfile\n", filename);
+	std::system(command);
+
+	sprintf(command, "rm tempfile %s.tex %s.aux %s.log\n", filename, filename, filename);
+	std::system(command);
+}
+
+void log_to_tex_file(Node_t * root, const char filename[], const char proc[] /*= "Очевидное преобразование:"*/){
+	
+	FILE * file = fopen(filename, "a");	
+	if(file == nullptr){
+		fprintf(stderr, "Unable to open file %s\n", filename);
+		return;
+	}
+	fprintf(file, "%s $$", proc);
+
+	tex_node_tree(root, file);
+
+	fprintf(file, "$$");
+
+	fclose(file);
+		
+	return;
+}
+
+void tex_node_tree(Node_t * node, FILE * file){
+	
+	if(	THIS->mode == MODE_CNST){
+		fprintf(file, NODE_ELEM_PRINT_VALUE, DATA);
+	}
+	else if(THIS->mode == MODE_VARL){
+		fprintf(file, NODE_ELEM_PRINT, DATA);
+	}
+	else if(THIS->mode == MODE_FUNC){
+
+		int first_priority = MIN_PRIORITY;
+		int second_priority = MAX_PRIORITY;
+
+		#define DEF_TEX(name, equal, prior, command)	else if(PARENT->data == equal){\
+									first_priority = prior;\
+								}
+		if(PARENT == nullptr || PARENT->mode != MODE_FUNC){
+			0;
+		}
+		#include"tex_commands.h"
+		else{
+			assert(("unexpected situation\n", false) == true);
+		}
+		#undef DEF_TEX
+
+		#define DEF_TEX(name, equal, prior, command)	else if(DATA == equal){\
+									second_priority = prior;\
+								}
+		if(THIS->mode != MODE_FUNC){
+			0;
+		}
+		#include"tex_commands.h"
+		else{
+			assert(("unexpected situation\n", false) == true);
+		}
+		#undef DEF_TEX
+
+
+		switch(DATA){
+
+		#define DEF_TEX(name, equal, prior, command) \
+			case equal:\
+				command;\
+				break;			
+			#include "tex_commands.h"
+			default:
+				fprintf(stderr, "Can't resolve func: " NODE_ELEM_PRINT "\n", DATA);
+				return;
+		}
+		#undef DEF_TEX
+	}
+	else{
+		fprintf(stderr, "Unknown mode: %d\n", THIS->mode);
+		return;
+	}
+
+}
 
 Node_t * differentiate_to_new(Node_t * node){
 
@@ -92,7 +207,6 @@ bool node_tree_optimize(Node_t * node){
 						}
 	#include"optims.h"
 	#undef DEF_OPTIM
-
 
 	#define DEF_DIF(name, _mode, equal, command, do)	else if(equal == DATA){\
 									optimized = true;\
