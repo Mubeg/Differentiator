@@ -1,0 +1,9 @@
+G         ::= E'\0'
+E         ::= T{['+''-']T}*
+T         ::= POW{['*''/']POW}*
+POW       ::= UNAR{'^'UNAR}*
+UNAR      ::= ['+''-']P | P
+P         ::= N | FUNC_CALL | ID | '('E')'
+FUNC_CALL ::= ID'('E')'
+ID        ::= ['a'-'z''A'-'Z']+
+N         ::= ['0'-'9']+
