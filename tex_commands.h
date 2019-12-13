@@ -12,11 +12,10 @@ DEF_TEX(add, '+', 1, SEPARATOR_S; TEX(LEFT); LEFT == nullptr ? PRINT(" +") : PRI
 DEF_TEX(sub, '-', 1, SEPARATOR_S; TEX(LEFT); LEFT == nullptr ? PRINT(" -") : PRINT(" - "); TEX(RIGHT); SEPARATOR_E;)
 DEF_TEX(mul, '*', 2, SEPARATOR_S; TEX(LEFT); PRINT("\\cdot "); TEX(RIGHT); SEPARATOR_E;)
 DEF_TEX(div, '/', 2, SEPARATOR_S; PRINT("\\frac{"); TEX(LEFT); PRINT("}"); PRINT("{"); TEX(RIGHT); PRINT("}"); SEPARATOR_E;)
-DEF_TEX(pow, '^', 3, SEPARATOR_S; TEX(LEFT); PRINT("^");   TEX(RIGHT); SEPARATOR_E;)
+DEF_TEX(pow, '^', 3, SEPARATOR_S; (LEFT->mode == MODE_OPER && LEFT->data == '^') ? (PRINT("("), TEX(LEFT), PRINT(")"), 0) : (TEX(LEFT), 0); PRINT("^{");   TEX(RIGHT); PRINT("}"); SEPARATOR_E;)
 
 /*DEF_TEX(add, 'sin', 0, TEX(LEFT); PRINT(+); TEX(RIGHT))
 DEF_TEX(add, 'cos', 0, TEX(LEFT); PRINT(+); TEX(RIGHT))
-DEF_TEX(add, '^', 3, TEX(LEFT); PRINT(+); TEX(RIGHT))
 DEF_TEX(add, 'ln', 0, TEX(LEFT); PRINT(+); TEX(RIGHT))
 */
 #undef TEX

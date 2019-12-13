@@ -86,8 +86,7 @@ Node_t * Get_T(Buff_elem_t * str, int * pc){
 
 		mode = str[*pc];
 		(*pc)++;
-		Node_t * val2 = Get_P(str, pc);
-
+		Node_t * val2 = Get_POW(str, pc);
 		val = node_create_new(MODE_OPER, mode, val, val2);
 	}
 
@@ -176,7 +175,6 @@ Node_t * Get_FUNC_CALL(Buff_elem_t * str, int * pc){
 
 	int saved_pc = *pc;
 
-	Node_t * val = nullptr;
 	Buff_elem_t * val1 = Get_ID(str, pc);
 
 	if(val1 == nullptr || val1[0] == '\0'){
@@ -231,18 +229,19 @@ Node_t * Get_N(Buff_elem_t * str, int * pc){
 		val  = val*10 + str[*pc] - '0';
 		(*pc)++;
 	}
+	int i = ACCURACY;
 	if(str[*pc] == '.'){
 
 		(*pc)++;
-		int i = ACCURACY;
 		for(; i > 1 && '0' <= str[*pc] && str[*pc] <= '9'; i/=10){
 			done = true;
 			val = val*10 + str[*pc] - '0';
 			(*pc)++;
 		}
-		val *= i;
 	
 	}
+	val *= i;
+
 	if(!done){
 		assert(("Get_N", false) == true);
 	}

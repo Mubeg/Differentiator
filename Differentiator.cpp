@@ -7,11 +7,13 @@
 
 int main(){
 
+	//printf("%d %f\n", 2, log(((float) 2000)/ACCURACY)/log(2.718));
+
 	const int LINE_ 		= __LINE__;
-	procs[__LINE__ - LINE_ - 1] 	= "Очевидное преобразование";
-	procs[__LINE__ - LINE_ - 1] 	= "Нетрудно увидеть, что";
-	procs[__LINE__ - LINE_ - 1] 	= "При помощи простейших действий получем";
-	procs[__LINE__ - LINE_ - 1]	= "Упростим";
+	procs[__LINE__ - LINE_ - 1] 	= "Очевидное преобразование:";
+	procs[__LINE__ - LINE_ - 1] 	= "Нетрудно увидеть, что:";
+	procs[__LINE__ - LINE_ - 1] 	= "При помощи простейших действий получем:";
+	procs[__LINE__ - LINE_ - 1]	= "Упростим:";
 	PROCS_NUM 			= __LINE__ - LINE_ - 1;
 
 	std::setlocale(LC_ALL, "ru_RU.UTF-8");
@@ -50,7 +52,7 @@ int main(){
 	fclose(tree_file);
 
 	node_set_parents(node);
-	dot_node(node,      IMAGE_OUT_2);
+	dot_node(node, IMAGE_OUT_2);
 
 	Node_t *node_done = differentiate_to_new(node);
 	node_set_parents(node_done);
@@ -58,12 +60,14 @@ int main(){
 	tex_init(TEX_FILE);
 
 	log_to_tex_file(node, TEX_FILE, "", true);
+	log_to_tex_file(node_done, TEX_FILE, "Продиффиренциреум:");
 
 	std::srand(unsigned(time(0)));
 
-	while(node_tree_optimize(node_done)){node_set_parents(node_done); log_to_tex_file(node_done, TEX_FILE, procs[std::rand() % PROCS_NUM]);};
+	for(int i = 0; node_tree_optimize(node_done); i++){node_set_parents(node_done); 
+							   log_to_tex_file(node_done, TEX_FILE, procs[std::rand() % PROCS_NUM]);};
 
-	log_to_tex_file(node_done, TEX_FILE, "Result:", false, 'x', true);
+	log_to_tex_file(node_done, TEX_FILE, "В результате:", false, DIFF_VAR, true);
 
 	tex_process(TEX_FILE_SUB);
 	
@@ -90,8 +94,7 @@ void color_node(Node_t * node, FILE * file){
 					(THIS->mode == MODE_FUNC ? "blue"    : "black"))));
 
 	if(THIS->mode == MODE_CNST)
-		fprintf(file, "%d [%s; shape = record; label =\"" NODE_ELEM_PRINT_VALUE    "\"]\n", THIS, color, DATA);
-
+		fprintf(file, "%d [%s; shape = record; label =\"" NODE_ELEM_PRINT_VALUE    "\"]\n", THIS, color, (float) DATA / ACCURACY);
 	else if(THIS->mode == MODE_FUNC)
 		fprintf(file, "%d [%s; shape = record; label =\"" NODE_ELEM_PRINT_FUNCTION "\"]\n", THIS, color, list_get(mstokens, DATA).token);
 	else
@@ -110,7 +113,7 @@ void tex_init(const char filename[]){
 		return;
 	}
 
-	fprintf(file, "\\documentclass{article}\n\\usepackage[utf8]{inputenc}\n\\usepackage[russian,english]{babel}\n\\usepackage{setspace, amsmath}\n\\begin{document}\n");
+	fprintf(file, "\\documentclass{article}\n\\usepackage[utf8]{inputenc}\n\\usepackage[english,russian]{babel}\n\\usepackage{setspace, amsmath}\n\\begin{document}\n");
 
 	fclose(file);
 }
@@ -246,7 +249,7 @@ void tex_node_tree(Node_t * node, FILE * file){
 
 Node_t * differentiate_to_new(Node_t * node){
 
-	Node_t * root = do_diff_recursive(node, 'x');
+	Node_t * root = do_diff_recursive(node, DIFF_VAR);
 	return root;
 }
 
@@ -289,7 +292,7 @@ bool node_tree_optimize(Node_t * node){
 	#include"optims.h"
 	#undef DEF_OPTIM
 
-	#define DEF_DIF(name, _mode, equal, command, do)	else if(equal == DATA || list_find_by_elem(mstokens, #name) > 0){\
+	#define DEF_DIF(name, _mode, equal, command, do)	else if(equal == DATA || list_find_by_elem(mstokens, #name) == DATA){\
 									optimized = true;\
 									\
 									THIS->mode = MODE_CNST;\
@@ -301,7 +304,7 @@ bool node_tree_optimize(Node_t * node){
 									RIGHT = nullptr;\
 			      					}
 
-	if((LEFT != nullptr && LEFT->mode != MODE_CNST) || RIGHT == nullptr || RIGHT->mode != MODE_CNST ||
+	if(optimized || (LEFT != nullptr && LEFT->mode != MODE_CNST) || RIGHT == nullptr || RIGHT->mode != MODE_CNST ||
 	   (THIS->mode != MODE_OPER && THIS->mode != MODE_FUNC)){
 		0;
 	}

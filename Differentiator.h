@@ -7,6 +7,7 @@
 #include "includes/ionegin"
 
 
+const int DIFF_VAR 		= 'x';
 const char TEX_FILE[] 		= "tex_file.tex";
 const char TEX_FILE_SUB[] 	= "tex_file";
 const int ACCURACY 		= 1000;
